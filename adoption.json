@@ -1,0 +1,63 @@
+{
+  "chart": {
+    "type": "spline",
+    "zoomType": "xy"
+  },
+  "title": {
+    "text": "HSTS Adoption"
+  },
+  "tooltip": {
+    "headerFormat": "{series.name}",
+    "pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+  },
+  "xAxis": {
+    "title": {
+      "text": "Date"
+    },
+    "type": "datetime",
+    "dateTimeLabelFormats": {
+      "day": "%e. %b %Y",
+      "month": "%b %Y",
+      "year": "%Y"
+    }
+  },
+  "yAxis": {
+    "title": {
+      "text": "# Domains"
+    },
+    "min": 0
+  },
+  "plotOptions": {
+    "spline": {
+      "marker": {
+        "enabled": true,
+        "radius": 2 
+      }
+    }
+  },
+  "series": [
+    {
+      "name": "HSTS Adoption",
+      "data": [
+        [1505920980000, 0],
+        [1505993580000, 0],
+        [1509553380000, 0],
+        [1510158180000, 0],
+        [1510762980000, 0],
+        [1511367780000, 0],
+        [1511972580000, 0],
+        [1512577380000, 0],
+        [1513182180000, 0],
+        [1513786980000, 0],
+        [1514391780000, 0],
+        [1526533020000, 0],
+        [1526584200000, 0],
+        [1526587380000, 0],
+        [1526649180000, 292126],
+        [1527138720000, 292126],
+        [1527741240000, 292126],
+        [1528161060000, 292126]
+      ]
+    }
+  ]
+}
