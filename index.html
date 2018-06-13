@@ -4,7 +4,7 @@
 	<title>HSTS Study</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
 	<nav id="navbar-hsts" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -55,7 +55,18 @@
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra, nisi non luctus aliquet, massa magna blandit augue, ac finibus nibh velit id ligula. Proin quis sapien a dolor volutpat imperdiet ut at libero. In vitae tortor ligula. Aliquam sollicitudin ligula in felis consectetur iaculis ac quis libero. Sed fringilla ante nec nisi cursus, quis posuere leo lacinia. Donec elementum commodo dolor, nec pretium felis tristique molestie. Proin tincidunt laoreet neque, a vestibulum nisi molestie a. Fusce pulvinar nisl enim, et varius justo rutrum id.
 				</p>
-				<div id="max-age" style="width: 100%;height: 400px;"></div>
+				<ul class="nav nav-tabs" id="max-age-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="max-age-absolute-tab" data-toggle="tab" href="#max-age-absolute" role="tab" aria-controls="max-age-absolute" aria-selected="true">Absolute</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="max-age-relative-tab" data-toggle="tab" href="#max-age-relative" role="tab" aria-controls="max-age-relative" aria-selected="false">Relative</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="max-age-tab-content">
+					<div class="tab-pane fade show active" id="max-age-absolute" role="tabpanel" aria-labelledby="max-age-absolute-tab" style="width: 100%; height: 400px;"></div>
+					<div class="tab-pane fade" id="max-age-relative" role="tabpanel" aria-labelledby="max-age-relative-tab" style="width: 100%; height: 400px;"></div>
+				</div>
 				<p>
 					Phasellus elit elit, blandit nec aliquet at, facilisis sit amet dolor. Nam faucibus ullamcorper orci, sed sagittis urna semper id. Sed sed consequat neque. Pellentesque lacinia vitae quam id sodales. Cras et elementum lacus, et scelerisque neque. Pellentesque tortor urna, consectetur eget sem sit amet, varius accumsan ipsum. Integer id lectus eu augue feugiat vehicula sit amet sit amet purus. Phasellus suscipit nunc at mauris semper, nec consequat justo vulputate. Curabitur in orci tincidunt, condimentum eros vitae, feugiat ipsum. Mauris sed leo nulla. Aliquam leo dolor, laoreet pharetra auctor sit amet, auctor vitae metus. Duis ut nibh quis metus malesuada semper.
 				</p>
@@ -90,15 +101,139 @@
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 	<script src="https://code.highcharts.com/highcharts.src.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$.getJSON('adoption.json', function(chart) {
-				Highcharts.chart('hsts-adoption', chart);
+			$.getJSON('adoption.json', function(chartData) {
+				Highcharts.chart('hsts-adoption',
+					{
+						"chart": {
+							"type": "spline",
+							"zoomType": "xy"
+						},
+						"title": {
+							"text": "HSTS Adoption"
+						},
+						"tooltip": {
+							"headerFormat": "{series.name}",
+							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+						},
+						"xAxis": {
+							"title": {
+								"text": "Date"
+							},
+							"type": "datetime",
+							"dateTimeLabelFormats": {
+								"day": "%e. %b %Y",
+								"month": "%b %Y",
+								"year": "%Y"
+							}
+						},
+						"yAxis": {
+							"title": {
+								"text": "# Domains"
+							},
+							"min": 0
+						},
+						"plotOptions": {
+							"spline": {
+								"marker": {
+									"enabled": true,
+									"radius": 2 
+								}
+							}
+						},
+						"series": chartData
+					}
+				);
 			});
-			$.getJSON('max-age.json', function(chart) {
-				Highcharts.chart('max-age', chart);
+			$.getJSON('max-age.json', function(chartData) {
+				Highcharts.chart('max-age-absolute',
+					{
+						"chart": {
+							"type": "area",
+							"zoomType": "xy"
+						},
+						"title": {
+							"text": "max-age values"
+						},
+						"tooltip": {
+							"headerFormat": "{series.name}",
+							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+						},
+						"xAxis": {
+							"title": {
+								"text": "Date"
+							},
+							"type": "datetime",
+							"dateTimeLabelFormats": {
+								"day": "%e. %b %Y",
+								"month": "%b %Y",
+								"year": "%Y"
+							}
+						},
+						"yAxis": {
+							"title": {
+								"text": "# domains"
+							},
+							"min": 0
+						},
+						"plotOptions": {
+							"area": {
+								"stacking": "normal",
+								"marker": {
+									"enabled": true,
+									"radius": 2 
+								}
+							}
+						},
+						"series": chartData
+					}
+				);
+				Highcharts.chart('max-age-relative',
+					{
+						"chart": {
+							"type": "area",
+							"zoomType": "xy"
+						},
+						"title": {
+							"text": "max-age values"
+						},
+						"tooltip": {
+							"headerFormat": "{series.name}",
+							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+						},
+						"xAxis": {
+							"title": {
+								"text": "Date"
+							},
+							"type": "datetime",
+							"dateTimeLabelFormats": {
+								"day": "%e. %b %Y",
+								"month": "%b %Y",
+								"year": "%Y"
+							}
+						},
+						"yAxis": {
+							"title": {
+								"text": "% of all scaned domains"
+							},
+							"min": 0
+						},
+						"plotOptions": {
+							"area": {
+								"stacking": "percent",
+								"marker": {
+									"enabled": true,
+									"radius": 2 
+								}
+							}
+						},
+						"series": chartData
+					}
+				);
 			});	
 		})
 	</script>
