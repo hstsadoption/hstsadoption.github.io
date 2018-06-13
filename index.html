@@ -57,15 +57,15 @@
 				</p>
 				<ul class="nav nav-tabs" id="max-age-tabs" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="max-age-absolute-tab" data-toggle="tab" href="#max-age-absolute" role="tab" aria-controls="max-age-absolute" aria-selected="true">Absolute</a>
+						<a class="nav-link active" id="max-age-relative-tab" data-toggle="tab" href="#max-age-relative" role="tab" aria-controls="max-age-relative" aria-selected="true">Relative</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="max-age-relative-tab" data-toggle="tab" href="#max-age-relative" role="tab" aria-controls="max-age-relative" aria-selected="false">Relative</a>
+						<a class="nav-link" id="max-age-absolute-tab" data-toggle="tab" href="#max-age-absolute" role="tab" aria-controls="max-age-absolute" aria-selected="false">Absolute</a>
 					</li>
 				</ul>
 				<div class="tab-content" id="max-age-tab-content">
-					<div class="tab-pane fade show active" id="max-age-absolute" role="tabpanel" aria-labelledby="max-age-absolute-tab" style="width: 100%; height: 400px;"></div>
-					<div class="tab-pane fade" id="max-age-relative" role="tabpanel" aria-labelledby="max-age-relative-tab" style="width: 100%; height: 400px;"></div>
+					<div class="tab-pane fade show active" id="max-age-relative" role="tabpanel" aria-labelledby="max-age-relative-tab" style="width: 100%; height: 400px;"></div>
+					<div class="tab-pane fade" id="max-age-absolute" role="tabpanel" aria-labelledby="max-age-absolute-tab" style="width: 100%; height: 400px;"></div>
 				</div>
 				<p>
 					Phasellus elit elit, blandit nec aliquet at, facilisis sit amet dolor. Nam faucibus ullamcorper orci, sed sagittis urna semper id. Sed sed consequat neque. Pellentesque lacinia vitae quam id sodales. Cras et elementum lacus, et scelerisque neque. Pellentesque tortor urna, consectetur eget sem sit amet, varius accumsan ipsum. Integer id lectus eu augue feugiat vehicula sit amet sit amet purus. Phasellus suscipit nunc at mauris semper, nec consequat justo vulputate. Curabitur in orci tincidunt, condimentum eros vitae, feugiat ipsum. Mauris sed leo nulla. Aliquam leo dolor, laoreet pharetra auctor sit amet, auctor vitae metus. Duis ut nibh quis metus malesuada semper.
@@ -117,8 +117,8 @@
 							"text": "HSTS Adoption"
 						},
 						"tooltip": {
-							"headerFormat": "{series.name}",
-							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+							"headerFormat": "<b>{series.name}</b><br/>",
+							"pointFormat": "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.0f} hosts</span>"
 						},
 						"xAxis": {
 							"title": {
@@ -160,8 +160,8 @@
 							"text": "max-age values"
 						},
 						"tooltip": {
-							"headerFormat": "{series.name}",
-							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+							"headerFormat": "<b>{series.name}</b><br/>",
+							"pointFormat": "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.0f} hosts</span>"
 						},
 						"xAxis": {
 							"title": {
@@ -202,8 +202,8 @@
 							"text": "max-age values"
 						},
 						"tooltip": {
-							"headerFormat": "{series.name}",
-							"pointFormat": "{point.x:%e. %b %Y}: {point.y:.0f} hosts"
+							"headerFormat": "<b>{series.name}</b><br/>",
+							"pointFormat": "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.0f} hosts</span>"
 						},
 						"xAxis": {
 							"title": {
