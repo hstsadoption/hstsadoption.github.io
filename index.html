@@ -588,6 +588,9 @@
 					},
 					'series': [
 						{
+							'name': "total",
+							'data': []
+						}, {
 							'name': "configuration",
 							'data': []
 						}, {
@@ -635,6 +638,9 @@
 					},
 					'series': [
 						{
+							'name': "total",
+							'data': []
+						}, {
 							'name': "configuration",
 							'data': []
 						}, {
@@ -643,7 +649,7 @@
 						}
 					]
 				},
-				new DataResolver(true, true, ['configuration', 'existence'])
+				new DataResolver(true, true, ['total', 'configuration', 'existence'])
 			);
 
 			chartMap['inconsistency-v4v6'] = new Chart('inconsistency-v4v6',
