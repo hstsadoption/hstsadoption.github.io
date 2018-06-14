@@ -151,14 +151,11 @@
 						</label>
 					</div>
 					<div class="btn-group btn-group-toggle data-set-toggle" data-chart="inconsistencies" data-toggle="buttons">
-						<label class="btn btn-secondary">
-							<input type="radio" name="inconsistencies-set" id="inconsistencies-set-ipv4" data-set="ipv4" autocomplete="off"> IPv4
+						<label class="btn btn-secondary active">
+							<input type="radio" name="inconsistencies-set" id="inconsistencies-set-ipv4" data-set="ipv4" autocomplete="off" checked> IPv4
 						</label>
 						<label class="btn btn-secondary">
 							<input type="radio" name="inconsistencies-set" id="inconsistencies-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
-						</label>
-						<label class="btn btn-secondary active">
-							<input type="radio" name="inconsistencies-set" id="inconsistencies-set-merged" data-set="merged" autocomplete="off" checked> Merged
 						</label>
 					</div>
 				</div>
@@ -401,7 +398,7 @@
 					},
 					'yAxis': {
 						'title': {
-							'text': "% of scaned domains"
+							'text': "% of domains with sts"
 						},
 						'min': 0
 					},
@@ -512,7 +509,7 @@
 					},
 					'yAxis': {
 						'title': {
-							'text': "% of scaned domains"
+							'text': "% of domains with sts"
 						},
 						'min': 0,
 						'max': 100
@@ -624,7 +621,7 @@
 					},
 					'yAxis': {
 						'title': {
-							'text': "% of scaned domains"
+							'text': "% of domains with sts"
 						},
 						'min': 0
 					},
@@ -719,7 +716,7 @@
 					},
 					'yAxis': {
 						'title': {
-							'text': "% of scaned domains"
+							'text': "% of domains with sts"
 						},
 						'min': 0
 					},
@@ -742,7 +739,11 @@
 			);
 
 			$.each(chartMap, function(id, chart) {
-				chart.load('merged');
+				if(id == 'inconsistencies') {
+					chart.load('ipv4');
+				} else {
+					chart.load('merged');
+				}
 			});
 		});
 	</script>
