@@ -7,7 +7,6 @@ class Chart {
 	}
 
 	load(data) {
-		console.debug('chart.load');
 		var me = this;
 		$.getJSON(this.resolver.getUrl(this.id, 'absolute', data), function(chartData) {
 			$.each(chartData, function(key, data) {
