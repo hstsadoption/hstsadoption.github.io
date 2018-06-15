@@ -50,6 +50,17 @@
 							<input type="radio" name="adoption-scope" id="adoption-scope-relative-radio" autocomplete="off"> Relative
 						</label>
 					</div>
+					<div class="btn-group btn-group-toggle data-set-toggle" data-chart="adoption" data-toggle="buttons">
+						<label class="btn btn-secondary">
+							<input type="radio" name="adoption-set" id="adoption-set-ipv4" data-set="ipv4" autocomplete="off"> IPv4
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="adoption-set" id="adoption-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
+						</label>
+						<label class="btn btn-secondary active">
+							<input type="radio" name="adoption-set" id="adoption-set-merged" data-set="merged" autocomplete="off" checked> Merged
+						</label>
+					</div>
 				</div>
 				<div class="tab-content" id="adoption-tab-content">
 					<div class="tab-pane fade show active" id="adoption-absolute" role="tabpanel" aria-labelledby="adoption-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
@@ -261,13 +272,10 @@
 					},
 					'series': [
 						{
-							'name': "IPv4",
+							'name': "Domains with HSTS",
 							'data': []
 						}, {
-							'name': "IPv6",
-							'data': []
-						}, {
-							'name': "Merged",
+							'name': "Domains with parse errors",
 							'data': []
 						}
 					]
@@ -282,7 +290,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}%</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of scaned domains</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -311,18 +319,15 @@
 					},
 					'series': [
 						{
-							'name': "IPv4",
+							'name': "Domains with HSTS",
 							'data': []
 						}, {
-							'name': "IPv6",
-							'data': []
-						}, {
-							'name': "Merged",
+							'name': "Domains with parse errors",
 							'data': []
 						}
 					]
 				},
-				new DataResolver(true, false, ['ipv4', 'ipv6', 'merged'])
+				new DataResolver(true, true, ['hsts', 'parseError'])
 			);
 
 			chartMap['configuration'] = new Chart('configuration',
@@ -383,7 +388,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}%</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -494,7 +499,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}%</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -609,7 +614,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}%</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -707,7 +712,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}%</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
