@@ -22,7 +22,7 @@
 			<div class="collapse navbar-collapse" id="navbarContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#home">Home</a>
+						<a class="nav-link" href="#about">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#adoption">Adoption</a>
@@ -41,9 +41,15 @@
 	<div style="height: 100vh; padding-top: 56px;">
 		<div style="overflow-y: scroll; height: 100%;" data-spy="scroll" data-target="#navbar-hsts" data-offset="56">
 			<div class="container">
-				<h1 id="home">HSTS Study</h1>
+				<h2 id="about">About this Study</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra, nisi non luctus aliquet, massa magna blandit augue, ac finibus nibh velit id ligula. Proin quis sapien a dolor volutpat imperdiet ut at libero. In vitae tortor ligula. Aliquam sollicitudin ligula in felis consectetur iaculis ac quis libero. Sed fringilla ante nec nisi cursus, quis posuere leo lacinia. Donec elementum commodo dolor, nec pretium felis tristique molestie. Proin tincidunt laoreet neque, a vestibulum nisi molestie a. Fusce pulvinar nisl enim, et varius justo rutrum id.
+					A browser respecting the <code>Strict-Transport-Security</code> header (defined in <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a>) will access the website sending this header only via a secure connection for the following requests. This prevents e.g. session cookies to be leaked by being sent through insecure connections.
+				</p>
+				<p>
+					All of the charts can be viewed in absolute values as number of domains, or in relative values as percentage of scaned domans or domains with sts enabled. Additionally the data set can be selected with "IPv4" showing only data for domains that were scaned via IPv4, "IPv6" respecitvely for domains scaned via IPv6 and "Merged" showing data for both of the previous scans merged by the domain.
+				</p>
+				<p>
+					This study is part of the bachelor thesis "Long Term Analysis of the HTTP Strict Transport Security Header".
 				</p>
 				<h2 id="adoption">Adoption</h2>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
@@ -72,51 +78,15 @@
 					<div class="tab-pane fade" id="adoption-relative" role="tabpanel" aria-labelledby="adoption-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
 				<p>
-					Phasellus elit elit, blandit nec aliquet at, facilisis sit amet dolor. Nam faucibus ullamcorper orci, sed sagittis urna semper id. Sed sed consequat neque. Pellentesque lacinia vitae quam id sodales. Cras et elementum lacus, et scelerisque neque. Pellentesque tortor urna, consectetur eget sem sit amet, varius accumsan ipsum. Integer id lectus eu augue feugiat vehicula sit amet sit amet purus. Phasellus suscipit nunc at mauris semper, nec consequat justo vulputate. Curabitur in orci tincidunt, condimentum eros vitae, feugiat ipsum. Mauris sed leo nulla. Aliquam leo dolor, laoreet pharetra auctor sit amet, auctor vitae metus. Duis ut nibh quis metus malesuada semper.
-				</p>
-				<p>
-					Fusce malesuada tellus id enim volutpat venenatis. Phasellus malesuada eu turpis sed feugiat. Sed convallis mauris vel facilisis pharetra. Pellentesque vel elementum urna. Nulla consequat, lorem a gravida tempus, lectus diam vulputate sem, non efficitur justo dui non odio. Quisque molestie purus vel interdum iaculis. Etiam rutrum sodales luctus. Proin sit amet sem ipsum. Nunc et faucibus odio, nec cursus velit.
-				</p>
-				<p>
-					Nunc efficitur nibh vitae hendrerit tincidunt. Phasellus dapibus odio elit, quis sagittis massa lobortis fermentum. In molestie, urna nec molestie pretium, lorem lectus tincidunt ligula, sed maximus turpis turpis sit amet justo. In eget auctor est. Phasellus quis dui pellentesque, facilisis mauris non, hendrerit neque. Aenean finibus, erat non rutrum bibendum, mi metus blandit arcu, vel eleifend lorem orci ac purus. Sed at purus gravida, lacinia eros ut, iaculis nunc. Suspendisse non tempor lacus, quis sagittis nisl. Suspendisse quis lacinia massa.
-				</p>
-				<p>
-					Nam eu lacinia nisi. Maecenas eget nulla turpis. Vivamus lobortis elit est, sit amet mattis libero mollis ac. Maecenas varius condimentum placerat. Donec at maximus nisi. Donec feugiat, ligula non cursus vehicula, ipsum dui laoreet diam, eu bibendum tortor sem non arcu. Donec ac faucibus nisi, sit amet vehicula metus. Integer tempor libero id orci facilisis malesuada. Sed faucibus mi facilisis urna suscipit, vitae tincidunt enim aliquam. Curabitur interdum ipsum non magna euismod mattis. Ut non fringilla diam, quis egestas libero. Vestibulum sed laoreet sapien. Suspendisse vitae arcu vehicula, consequat odio eu, varius lectus. Quisque quis commodo dolor. Integer tempus nec ipsum id bibendum. Donec in metus ut turpis euismod aliquam vel accumsan risus.
+					<small>Note: Domains with parse errors might still have a valid HSTS header if all required directives could be parsed, but some optional directives could not be.</small>
 				</p>
 
 				<h2 id="configuration">Configuration</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra, nisi non luctus aliquet, massa magna blandit augue, ac finibus nibh velit id ligula. Proin quis sapien a dolor volutpat imperdiet ut at libero. In vitae tortor ligula. Aliquam sollicitudin ligula in felis consectetur iaculis ac quis libero. Sed fringilla ante nec nisi cursus, quis posuere leo lacinia. Donec elementum commodo dolor, nec pretium felis tristique molestie. Proin tincidunt laoreet neque, a vestibulum nisi molestie a. Fusce pulvinar nisl enim, et varius justo rutrum id.
+					The HSTS header can be configured with the three directives <code>max-age</code>, <code>includeSubDomains</code> and <code>preload</code> (with the later one not being defined in the official RFC, but being used by most browsers to generate their preloading lists).
 				</p>
-
-				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
-					<div class="nav btn-group btn-group-toggle" id="configuration-tabs" data-toggle="buttons" role="tablist">
-						<label class="nav-link btn btn-secondary active" id="configuration-scope-absolute-tab" data-toggle="tab" href="#configuration-absolute" role="tab" aria-controls="configuration-absolute" aria-selected="true">
-							<input type="radio" name="configuration-scope" id="configuration-scope-absolute-radio" autocomplete="off" checked> Absolute
-						</label>
-						<label class="nav-link btn btn-secondary" id="configuration-scope-relative-tab" data-toggle="tab" href="#configuration-relative" role="tab" aria-controls="configuration-relative" aria-selected="false">
-							<input type="radio" name="configuration-scope" id="configuration-scope-relative-radio" autocomplete="off"> Relative
-						</label>
-					</div>
-					<div class="btn-group btn-group-toggle data-set-toggle" data-chart="configuration" data-toggle="buttons">
-						<label class="btn btn-secondary">
-							<input type="radio" name="configuration-set" id="configuration-set-ipv4" data-set="ipv4" autocomplete="off"> IPv4
-						</label>
-						<label class="btn btn-secondary">
-							<input type="radio" name="configuration-set" id="configuration-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
-						</label>
-						<label class="btn btn-secondary active">
-							<input type="radio" name="configuration-set" id="configuration-set-merged" data-set="merged" autocomplete="off" checked> Merged
-						</label>
-					</div>
-				</div>
-				<div class="tab-content" id="configuration-tab-content">
-					<div class="tab-pane fade show active" id="configuration-absolute" role="tabpanel" aria-labelledby="configuration-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
-					<div class="tab-pane fade" id="configuration-relative" role="tabpanel" aria-labelledby="configuration-scope-relative-tab" style="width: 100%;height: 400px;"></div>
-				</div>
-
 				<p>
-					Phasellus elit elit, blandit nec aliquet at, facilisis sit amet dolor. Nam faucibus ullamcorper orci, sed sagittis urna semper id. Sed sed consequat neque. Pellentesque lacinia vitae quam id sodales. Cras et elementum lacus, et scelerisque neque. Pellentesque tortor urna, consectetur eget sem sit amet, varius accumsan ipsum. Integer id lectus eu augue feugiat vehicula sit amet sit amet purus. Phasellus suscipit nunc at mauris semper, nec consequat justo vulputate. Curabitur in orci tincidunt, condimentum eros vitae, feugiat ipsum. Mauris sed leo nulla. Aliquam leo dolor, laoreet pharetra auctor sit amet, auctor vitae metus. Duis ut nibh quis metus malesuada semper.
+					The <code>max-age</code> directive is required for the header to be valid and can have any positive integer value. This value specifies the duration in seconds for which the strict transport security policy should be active. The spread of the value used for this direcitve can be seen in the following chart.
 				</p>
 
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
@@ -146,16 +116,46 @@
 				</div>
 
 				<p>
-					Fusce malesuada tellus id enim volutpat venenatis. Phasellus malesuada eu turpis sed feugiat. Sed convallis mauris vel facilisis pharetra. Pellentesque vel elementum urna. Nulla consequat, lorem a gravida tempus, lectus diam vulputate sem, non efficitur justo dui non odio. Quisque molestie purus vel interdum iaculis. Etiam rutrum sodales luctus. Proin sit amet sem ipsum. Nunc et faucibus odio, nec cursus velit.
-				</p>
-				<p>
-					Nunc efficitur nibh vitae hendrerit tincidunt. Phasellus dapibus odio elit, quis sagittis massa lobortis fermentum. In molestie, urna nec molestie pretium, lorem lectus tincidunt ligula, sed maximus turpis turpis sit amet justo. In eget auctor est. Phasellus quis dui pellentesque, facilisis mauris non, hendrerit neque. Aenean finibus, erat non rutrum bibendum, mi metus blandit arcu, vel eleifend lorem orci ac purus. Sed at purus gravida, lacinia eros ut, iaculis nunc. Suspendisse non tempor lacus, quis sagittis nisl. Suspendisse quis lacinia massa.
-				</p>
-				<p>
-					Nam eu lacinia nisi. Maecenas eget nulla turpis. Vivamus lobortis elit est, sit amet mattis libero mollis ac. Maecenas varius condimentum placerat. Donec at maximus nisi. Donec feugiat, ligula non cursus vehicula, ipsum dui laoreet diam, eu bibendum tortor sem non arcu. Donec ac faucibus nisi, sit amet vehicula metus. Integer tempor libero id orci facilisis malesuada. Sed faucibus mi facilisis urna suscipit, vitae tincidunt enim aliquam. Curabitur interdum ipsum non magna euismod mattis. Ut non fringilla diam, quis egestas libero. Vestibulum sed laoreet sapien. Suspendisse vitae arcu vehicula, consequat odio eu, varius lectus. Quisque quis commodo dolor. Integer tempus nec ipsum id bibendum. Donec in metus ut turpis euismod aliquam vel accumsan risus.
+					The other two directives do not have any values, but can either be set or not. The <code>includeSubDomains</code> direcitve extens the strict transport security policy to any subdomains of the domain that the HSTS header was sent initially. By setting <code>preload</code> directive the owner of a website allows its domain to be included in preload lists that come with most browsers.
 				</p>
 
+				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
+					<div class="nav btn-group btn-group-toggle" id="configuration-tabs" data-toggle="buttons" role="tablist">
+						<label class="nav-link btn btn-secondary active" id="configuration-scope-absolute-tab" data-toggle="tab" href="#configuration-absolute" role="tab" aria-controls="configuration-absolute" aria-selected="true">
+							<input type="radio" name="configuration-scope" id="configuration-scope-absolute-radio" autocomplete="off" checked> Absolute
+						</label>
+						<label class="nav-link btn btn-secondary" id="configuration-scope-relative-tab" data-toggle="tab" href="#configuration-relative" role="tab" aria-controls="configuration-relative" aria-selected="false">
+							<input type="radio" name="configuration-scope" id="configuration-scope-relative-radio" autocomplete="off"> Relative
+						</label>
+					</div>
+					<div class="btn-group btn-group-toggle data-set-toggle" data-chart="configuration" data-toggle="buttons">
+						<label class="btn btn-secondary">
+							<input type="radio" name="configuration-set" id="configuration-set-ipv4" data-set="ipv4" autocomplete="off"> IPv4
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="configuration-set" id="configuration-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
+						</label>
+						<label class="btn btn-secondary active">
+							<input type="radio" name="configuration-set" id="configuration-set-merged" data-set="merged" autocomplete="off" checked> Merged
+						</label>
+					</div>
+				</div>
+				<div class="tab-content" id="configuration-tab-content">
+					<div class="tab-pane fade show active" id="configuration-absolute" role="tabpanel" aria-labelledby="configuration-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
+					<div class="tab-pane fade" id="configuration-relative" role="tabpanel" aria-labelledby="configuration-scope-relative-tab" style="width: 100%;height: 400px;"></div>
+				</div>
+
 				<h2 id="inconsistencies">Inconsistencies</h2>
+
+				<p>
+					This section shows inconsistencies in the configuration and existence of the HSTS header between scans of a website of a single domain being served via different IP addresses.
+				</p>
+				<p>
+					The following chart shows inconsistencies across multiple IP address of the same version for a single domain.
+					An inconsistency in the configuration of the HSTS header requires any of the directives to have differing values, or being set when the website is served on one IP address, but not being set when the webiste is servert on another IP address.
+					A domain is inconsistent in the existence of the HSTS header if it is being sent on one IP, but not on another IP of the same domain.
+					The total inconsistencies statistic shows the domains with any of the above inconsistencies.
+				</p>
 
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="inconsistencies-tabs" data-toggle="buttons" role="tablist">
@@ -181,7 +181,7 @@
 				</div>
 
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra, nisi non luctus aliquet, massa magna blandit augue, ac finibus nibh velit id ligula. Proin quis sapien a dolor volutpat imperdiet ut at libero. In vitae tortor ligula. Aliquam sollicitudin ligula in felis consectetur iaculis ac quis libero. Sed fringilla ante nec nisi cursus, quis posuere leo lacinia. Donec elementum commodo dolor, nec pretium felis tristique molestie. Proin tincidunt laoreet neque, a vestibulum nisi molestie a. Fusce pulvinar nisl enim, et varius justo rutrum id.
+					Inconsistencies between different IP versions are found by defining a set of quad tuples for each IP version. Every quad tuple contains whether a valid HSTS header was set, the value of the <code>max-age</code> directive and whether the <code>includeSubDomains</code> and <code>preload</code> directives were set. If such a quad tuple is found in the set for one IP version, but not for the other, the domain being served on those IP addresses is considered inconsistent between IP versions.
 				</p>
 
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
@@ -198,19 +198,6 @@
 					<div class="tab-pane fade show active" id="inconsistency-v4v6-absolute" role="tabpanel" aria-labelledby="inconsistency-v4v6-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
 					<div class="tab-pane fade" id="inconsistency-v4v6-relative" role="tabpanel" aria-labelledby="inconsistency-v4v6-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
-
-				<p>
-					Phasellus elit elit, blandit nec aliquet at, facilisis sit amet dolor. Nam faucibus ullamcorper orci, sed sagittis urna semper id. Sed sed consequat neque. Pellentesque lacinia vitae quam id sodales. Cras et elementum lacus, et scelerisque neque. Pellentesque tortor urna, consectetur eget sem sit amet, varius accumsan ipsum. Integer id lectus eu augue feugiat vehicula sit amet sit amet purus. Phasellus suscipit nunc at mauris semper, nec consequat justo vulputate. Curabitur in orci tincidunt, condimentum eros vitae, feugiat ipsum. Mauris sed leo nulla. Aliquam leo dolor, laoreet pharetra auctor sit amet, auctor vitae metus. Duis ut nibh quis metus malesuada semper.
-				</p>
-				<p>
-					Fusce malesuada tellus id enim volutpat venenatis. Phasellus malesuada eu turpis sed feugiat. Sed convallis mauris vel facilisis pharetra. Pellentesque vel elementum urna. Nulla consequat, lorem a gravida tempus, lectus diam vulputate sem, non efficitur justo dui non odio. Quisque molestie purus vel interdum iaculis. Etiam rutrum sodales luctus. Proin sit amet sem ipsum. Nunc et faucibus odio, nec cursus velit.
-				</p>
-				<p>
-					Nunc efficitur nibh vitae hendrerit tincidunt. Phasellus dapibus odio elit, quis sagittis massa lobortis fermentum. In molestie, urna nec molestie pretium, lorem lectus tincidunt ligula, sed maximus turpis turpis sit amet justo. In eget auctor est. Phasellus quis dui pellentesque, facilisis mauris non, hendrerit neque. Aenean finibus, erat non rutrum bibendum, mi metus blandit arcu, vel eleifend lorem orci ac purus. Sed at purus gravida, lacinia eros ut, iaculis nunc. Suspendisse non tempor lacus, quis sagittis nisl. Suspendisse quis lacinia massa.
-				</p>
-				<p>
-					Nam eu lacinia nisi. Maecenas eget nulla turpis. Vivamus lobortis elit est, sit amet mattis libero mollis ac. Maecenas varius condimentum placerat. Donec at maximus nisi. Donec feugiat, ligula non cursus vehicula, ipsum dui laoreet diam, eu bibendum tortor sem non arcu. Donec ac faucibus nisi, sit amet vehicula metus. Integer tempor libero id orci facilisis malesuada. Sed faucibus mi facilisis urna suscipit, vitae tincidunt enim aliquam. Curabitur interdum ipsum non magna euismod mattis. Ut non fringilla diam, quis egestas libero. Vestibulum sed laoreet sapien. Suspendisse vitae arcu vehicula, consequat odio eu, varius lectus. Quisque quis commodo dolor. Integer tempus nec ipsum id bibendum. Donec in metus ut turpis euismod aliquam vel accumsan risus.
-				</p>
 			</div>
 		</div>
 	</div>
