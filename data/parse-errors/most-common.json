@@ -1,0 +1,22 @@
+{
+	"ipv4": [
+		{
+			"occurences": 400,
+			"error": "Some test error"
+		},
+		{
+			"occurences": 367,
+			"error": "Just another test error"
+		},
+		{
+			"occurences": 297,
+			"error": "Another error for testing the parse error table. But this error is kinda long to see what happens with the table design in case the error message is so long that it would not fit in a single line"
+		},
+		{
+			"occurences": 219,
+			"error": "This should be enough errors for now"
+		}
+	],
+	"ipv6": [
+	]
+}

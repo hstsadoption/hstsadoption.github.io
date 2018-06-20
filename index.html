@@ -6,8 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<style type="text/css">
+		html {
+			min-height: 100%;
+		}
+
 		h1, h2 {
 			margin-top: 24px;
+		}
+
+		.scroll-content {
+			height: 100%;
+			overflow-y: scroll;
+		}
+
+		.footer {
+			bottom: 0;
+			width: 100%;
+			/* Set the fixed height of the footer here */
+			min-height: 60px;
+			line-height: 60px; /* Vertically center the text there */
+			background-color: #f5f5f5;
+			margin-top: 48px;
 		}
 	</style>
 </head>
@@ -31,7 +50,7 @@
 						<a class="nav-link" href="#configuration">Configuration</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#inconsistencies">Inconsistencies</a>
+						<a class="nav-link" href="#anomalies">Anomalies</a>
 					</li>
 				</ul>
 			</div>
@@ -39,19 +58,25 @@
 	</nav>
 
 	<div style="height: 100vh; padding-top: 56px;">
-		<div style="overflow-y: scroll; height: 100%;" data-spy="scroll" data-target="#navbar-hsts" data-offset="56">
-			<div class="container">
-				<h2 id="about">About this Study</h2>
+		<div class="scroll-content" data-spy="scroll" data-target="#navbar-hsts" data-offset="56">
+			<main role="main" class="container">
+				<h1 id="about">1. About this Study</h1>
 				<p>
 					A browser respecting the <code>Strict-Transport-Security</code> header (defined in <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a>) will access the website sending this header only via a secure connection for the following requests. This prevents e.g. session cookies to be leaked by being sent through insecure connections.
 				</p>
 				<p>
-					All of the charts can be viewed in absolute values as number of domains, or in relative values as percentage of scaned domans or domains with sts enabled. Additionally the data set can be selected with "IPv4" showing only data for domains that were scaned via IPv4, "IPv6" respecitvely for domains scaned via IPv6 and "Merged" showing data for both of the previous scans merged by the domain.
+					The data shown in the following charts is based on weekly scanns of more than 200M domains. All IP addresses of a given domain are scanned individually. While computing the here shown data these IP scanns are merged based on the domain (FQDN), so that a domain with multiple IP addresses only appears once.
+				</p>
+				<p>
+					All of the charts can be viewed in absolute values as amount of domains, or in relative values as percentage of domains with sts enabled (or percentage of scanned domains in case of the adoption chart). Additionally the data set can be selected with "IPv4" showing only data for domains that were scanned via IPv4, "IPv6" respectively for domains scanned via IPv6 and "Merged" showing data for both of the previous scans merged by the domain.
 				</p>
 				<p>
 					This study is part of the bachelor thesis "Long Term Analysis of the HTTP Strict Transport Security Header".
 				</p>
-				<h2 id="adoption">Adoption</h2>
+				<h1 id="adoption">2. Adoption</h1>
+				<p>
+					This chart shows how many domains include a valid HSTS header in the HTTP response.
+				</p>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="adoption-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="adoption-scope-absolute-tab" data-toggle="tab" href="#adoption-absolute" role="tab" aria-controls="adoption-absolute" aria-selected="true">
@@ -77,16 +102,14 @@
 					<div class="tab-pane fade show active" id="adoption-absolute" role="tabpanel" aria-labelledby="adoption-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
 					<div class="tab-pane fade" id="adoption-relative" role="tabpanel" aria-labelledby="adoption-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
-				<p>
-					<small>Note: Domains with parse errors might still have a valid HSTS header if all required directives could be parsed, but some optional directives could not be.</small>
-				</p>
 
-				<h2 id="configuration">Configuration</h2>
+				<h1 id="configuration">3. Configuration</h1>
 				<p>
 					The HSTS header can be configured with the three directives <code>max-age</code>, <code>includeSubDomains</code> and <code>preload</code> (with the later one not being defined in the official RFC, but being used by most browsers to generate their preloading lists).
 				</p>
+				<h2 id="max-age">3.1 max-age</h2>
 				<p>
-					The <code>max-age</code> directive is required for the header to be valid and can have any positive integer value. This value specifies the duration in seconds for which the strict transport security policy should be active. The spread of the value used for this direcitve can be seen in the following chart.
+					The <code>max-age</code> directive is required for the header to be valid and can have any positive integer value. This value specifies the duration in seconds for which the strict transport security policy should be active. The spread of the value used for this directive can be seen in the following chart.
 				</p>
 
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
@@ -115,8 +138,60 @@
 					<div class="tab-pane fade" id="max-age-relative" role="tabpanel" aria-labelledby="max-age-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
 
+				<h4>Legend details</h4>
 				<p>
-					The other two directives do not have any values, but can either be set or not. The <code>includeSubDomains</code> direcitve extens the strict transport security policy to any subdomains of the domain that the HSTS header was sent initially. By setting <code>preload</code> directive the owner of a website allows its domain to be included in preload lists that come with most browsers.
+					The following intervals show exactly how the max-age values map to the categories shown in the chart.
+				</p>
+				<table class="table table-sm table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Interval</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>&gt;1 year</td>
+							<td><pre>]370d; infinity[</pre></td>
+						</tr>
+						<tr>
+							<td>1 year</td>
+							<td><pre>]360d; 370d]</pre></td>
+						</tr>
+						<tr>
+							<td>&lt;1 year</td>
+							<td><pre>]190d; 360d]</pre></td>
+						</tr>
+						<tr>
+							<td>6 months</td>
+							<td><pre>]180d; 190d]</pre></td>
+						</tr>
+						<tr>
+							<td>&lt;6 months</td>
+							<td><pre>]7d  ; 180d]</pre></td>
+						</tr>
+						<tr>
+							<td>&le;1 week</td>
+							<td><pre>]1d  ; 7d]</pre></td>
+						</tr>
+						<tr>
+							<td>&le;1 day</td>
+							<td><pre>]1h  ; 1d]</pre></td>
+						</tr>
+						<tr>
+							<td>test</td>
+							<td><pre>]0s  ; 1h]</pre></td>
+						</tr>
+						<tr>
+							<td>off</td>
+							<td><pre>[0s  ; 0s]</pre></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2>3.2 includeSubDomains and preload</h2>
+				<p>
+					The other two directives do not have any values, but can either be set or not. The <code>includeSubDomains</code> directive extends the strict transport security policy to any subdomains of the domain that the HSTS header was sent initially. By setting <code>preload</code> directive the owner of a website allows its domain to be included in preload lists that come with most browsers.
 				</p>
 
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
@@ -145,14 +220,18 @@
 					<div class="tab-pane fade" id="configuration-relative" role="tabpanel" aria-labelledby="configuration-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
 
-				<h2 id="inconsistencies">Inconsistencies</h2>
-
+				<h1 id="anomalies">4. Anomalies</h1>
 				<p>
-					This section shows inconsistencies in the configuration and existence of the HSTS header between scans of a website of a single domain being served via different IP addresses.
+					This section displays anomalies that were found while analyzing the scan data.
+				</p>
+
+				<h2>4.1 Inconsistencies</h2>
+				<p>
+					Here shown are inconsistencies in the configuration and existence of the HSTS header between scans of domains that are served via multiple IP addresses.
 				</p>
 				<p>
 					The following chart shows inconsistencies across multiple IP address of the same version for a single domain.
-					An inconsistency in the configuration of the HSTS header requires any of the directives to have differing values, or being set when the website is served on one IP address, but not being set when the webiste is servert on another IP address.
+					An inconsistency in the configuration of the HSTS header requires any of the directives to have differing values, or being set when the website is served on one IP address, but not being set when the website is served on another IP address.
 					A domain is inconsistent in the existence of the HSTS header if it is being sent on one IP, but not on another IP of the same domain.
 					The total inconsistencies statistic shows the domains with any of the above inconsistencies.
 				</p>
@@ -198,7 +277,70 @@
 					<div class="tab-pane fade show active" id="inconsistency-v4v6-absolute" role="tabpanel" aria-labelledby="inconsistency-v4v6-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
 					<div class="tab-pane fade" id="inconsistency-v4v6-relative" role="tabpanel" aria-labelledby="inconsistency-v4v6-scope-relative-tab" style="width: 100%;height: 400px;"></div>
 				</div>
-			</div>
+
+				<h2>4.2 Parse Errors</h2>
+				<p>
+					While parsing the HSTS header parse errors can occur in case the header does not apply to <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a>. However a header that causes a parse error might still be valid if it is syntactically correct and all of the required directives are given.
+				</p>
+				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
+					<div class="nav btn-group btn-group-toggle" id="parse-errors-tabs" data-toggle="buttons" role="tablist">
+						<label class="nav-link btn btn-secondary active" id="parse-errors-scope-absolute-tab" data-toggle="tab" href="#parse-errors-absolute" role="tab" aria-controls="parse-errors-absolute" aria-selected="true">
+							<input type="radio" name="parse-errors-scope" id="parse-errors-scope-absolute-radio" autocomplete="off" checked> Absolute
+						</label>
+						<label class="nav-link btn btn-secondary" id="parse-errors-scope-relative-tab" data-toggle="tab" href="#parse-errors-relative" role="tab" aria-controls="parse-errors-relative" aria-selected="false">
+							<input type="radio" name="parse-errors-scope" id="parse-errors-scope-relative-radio" autocomplete="off"> Relative
+						</label>
+					</div>
+					<div class="btn-group btn-group-toggle data-set-toggle" data-chart="parse-errors" data-toggle="buttons">
+						<label class="btn btn-secondary">
+							<input type="radio" name="parse-errors-set" id="parse-errors-set-ipv4" data-set="ipv4" autocomplete="off"> IPv4
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="parse-errors-set" id="parse-errors-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
+						</label>
+						<label class="btn btn-secondary active">
+							<input type="radio" name="parse-errors-set" id="parse-errors-set-merged" data-set="merged" autocomplete="off" checked> Merged
+						</label>
+					</div>
+				</div>
+				<div class="tab-content" id="parse-errors-tab-content">
+					<div class="tab-pane fade show active" id="parse-errors-absolute" role="tabpanel" aria-labelledby="parse-errors-scope-absolute-tab" style="width: 100%;height: 400px;"></div>
+					<div class="tab-pane fade" id="parse-errors-relative" role="tabpanel" aria-labelledby="parse-errors-scope-relative-tab" style="width: 100%;height: 400px;"></div>
+				</div>
+
+				<h4>Top 10 parse errors</h4>
+				<p>
+					These are the ten most common parse errors that occurred in the most recent scann.
+				</p>
+				<div class="btn-toolbar justify-content-between mb-4" role="toolbar" aria-label="Chart options">
+					<div></div>
+					<div class="btn-group btn-group-toggle data-set-table-toggle" data-table="parse-errors-most-common" data-toggle="buttons">
+						<label class="btn btn-secondary active">
+							<input type="radio" name="parse-errors-set" id="parse-errors-set-ipv4" data-set="ipv4" autocomplete="off" checked=""> IPv4
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="parse-errors-set" id="parse-errors-set-ipv6" data-set="ipv6" autocomplete="off"> IPv6
+						</label>
+					</div>
+				</div>
+				<table class="table table-hover" id="parse-errors-most-common">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Occurences</th>
+							<th scope="col">Error</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</main>
+
+			<footer class="footer">
+				<div class="container">
+				</div>
+			</footer>
+
 		</div>
 	</div>
 
@@ -210,19 +352,7 @@
 	<script type="text/javascript">
 		$(function(){
 			var chartMap = {};
-
-			$('.data-set-toggle').delegate('input[type="radio"]', 'change', function(event) {
-				var group = $(event.delegateTarget);
-				var option = $(event.currentTarget);
-
-				var id = group.data('chart');
-				var set = option.data('set');
-
-				var chart = chartMap[id];
-				if (chart) {
-					chart.load(set);
-				}
-			});
+			var tableMap = {};
 
 			chartMap['adoption'] = new Chart('adoption',
 				{
@@ -264,10 +394,17 @@
 					},
 					'series': [
 						{
+							'name': "Domains with successful HTTPS connection",
+							'visible': false,
+							'data': []
+						}, {
 							'name': "Domains with HSTS",
 							'data': []
 						}, {
-							'name': "Domains with parse errors",
+							'name': "HSTS domains that include subdomains",
+							'data': []
+						}, {
+							'name': "HSTS domains with preloading",
 							'data': []
 						}
 					]
@@ -282,7 +419,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of scaned domains</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of scanned domains</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -297,7 +434,7 @@
 					},
 					'yAxis': {
 						'title': {
-							'text': "% of scaned domains"
+							'text': "% of scanned domains"
 						},
 						'min': 0
 					},
@@ -314,110 +451,15 @@
 							'name': "Domains with HSTS",
 							'data': []
 						}, {
-							'name': "Domains with parse errors",
-							'data': []
-						}
-					]
-				},
-				new DataResolver(true, true, ['hsts', 'parseError'])
-			);
-
-			chartMap['configuration'] = new Chart('configuration',
-				{
-					'chart': {
-						'type': 'spline',
-						'zoomType': 'xy'
-					},
-					'title': {
-						'text': "HSTS Configuration"
-					},
-					'tooltip': {
-						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:,.0f} domains</span>"
-					},
-					'xAxis': {
-						'title': {
-							'text': "Date"
-						},
-						'type': 'datetime',
-						'dateTimeLabelFormats': {
-							'day': '%e. %b %Y',
-							'month': '%b %Y',
-							'year': '%Y'
-						}
-					},
-					'yAxis': {
-						'title': {
-							'text': "# domains"
-						},
-						'min': 0
-					},
-					'plotOptions': {
-						'spline': {
-							'marker': {
-								'enabled': true,
-								'radius': 2 
-							}
-						}
-					},
-					'series': [
-						{
-							'name': "includeSubDomains",
+							'name': "HSTS domains that include subdomains",
 							'data': []
 						}, {
-							'name': "preload",
+							'name': "HSTS domains with preloading",
 							'data': []
 						}
 					]
 				},
-				{
-					'chart': {
-						'type': 'spline',
-						'zoomType': 'xy'
-					},
-					'title': {
-						'text': "HSTS Configuration"
-					},
-					'tooltip': {
-						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
-					},
-					'xAxis': {
-						'title': {
-							'text': "Date"
-						},
-						'type': 'datetime',
-						'dateTimeLabelFormats': {
-							'day': '%e. %b %Y',
-							'month': '%b %Y',
-							'year': '%Y'
-						}
-					},
-					'yAxis': {
-						'title': {
-							'text': "% of domains with sts"
-						},
-						'min': 0
-					},
-					'plotOptions': {
-						'spline': {
-							'marker': {
-								'enabled': true,
-								'radius': 2 
-							}
-						}
-					},
-					'series': [
-						{
-							'name': "includeSubDomains",
-							'data': []
-						}, {
-							'name': "preload",
-							'data': []
-						}
-					]
-				},
-				new DataResolver(true, true, ['includeSubDomains', 'preload'])
+				new DataResolver(true, true, ['domains', 'hsts', 'includeSubDomains', 'preload'], ['hsts', 'includeSubDomains', 'preload'])
 			);
 
 			chartMap['max-age'] = new Chart('max-age',
@@ -467,13 +509,22 @@
 							'name': "1 year",
 							'data': []
 						}, {
+							'name': "<1 year",
+							'data': []
+						}, {
 							'name': "6 months",
 							'data': []
 						}, {
-							'name': "30 days",
+							'name': "<6 months",
 							'data': []
 						}, {
-							'name': "1 week",
+							'name': "≤1 week",
+							'data': []
+						}, {
+							'name': "≤1 day",
+							'data': []
+						}, {
+							'name': "test",
 							'data': []
 						}, {
 							'name': "off",
@@ -491,7 +542,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.percentage:.2f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -528,13 +579,22 @@
 							'name': "1 year",
 							'data': []
 						}, {
+							'name': "<1 year",
+							'data': []
+						}, {
 							'name': "6 months",
 							'data': []
 						}, {
-							'name': "30 days",
+							'name': "<6 months",
 							'data': []
 						}, {
-							'name': "1 week",
+							'name': "≤1 week",
+							'data': []
+						}, {
+							'name': "≤1 day",
+							'data': []
+						}, {
+							'name': "test",
 							'data': []
 						}, {
 							'name': "off",
@@ -542,7 +602,109 @@
 						}
 					]
 				},
-				new DataResolver(false, true, ['other', 'year', 'half-year', 'month', 'week', 'off'])
+				new DataResolver(false, true, ['other', 'year', 'hy-y', 'half-year', 'w-ht', 'week', 'day', 'test', 'off'])
+			);
+
+			chartMap['configuration'] = new Chart('configuration',
+				{
+					'chart': {
+						'type': 'spline',
+						'zoomType': 'xy'
+					},
+					'title': {
+						'text': "HSTS Configuration"
+					},
+					'tooltip': {
+						'headerFormat': "<b>{series.name}</b><br/>",
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:,.0f} domains</span>"
+					},
+					'xAxis': {
+						'title': {
+							'text': "Date"
+						},
+						'type': 'datetime',
+						'dateTimeLabelFormats': {
+							'day': '%e. %b %Y',
+							'month': '%b %Y',
+							'year': '%Y'
+						}
+					},
+					'yAxis': {
+						'title': {
+							'text': "# domains"
+						},
+						'min': 0
+					},
+					'plotOptions': {
+						'spline': {
+							'marker': {
+								'enabled': true,
+								'radius': 2 
+							}
+						}
+					},
+					'series': [
+						{
+							'name': "includeSubDomains",
+							'data': []
+						}, {
+							'name': "preload",
+							'data': []
+						}, {
+							'name': "Chromium preload list",
+							'visible': false,
+							'data': []
+						}
+					]
+				},
+				{
+					'chart': {
+						'type': 'spline',
+						'zoomType': 'xy'
+					},
+					'title': {
+						'text': "HSTS Configuration"
+					},
+					'tooltip': {
+						'headerFormat': "<b>{series.name}</b><br/>",
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
+					},
+					'xAxis': {
+						'title': {
+							'text': "Date"
+						},
+						'type': 'datetime',
+						'dateTimeLabelFormats': {
+							'day': '%e. %b %Y',
+							'month': '%b %Y',
+							'year': '%Y'
+						}
+					},
+					'yAxis': {
+						'title': {
+							'text': "% of domains with sts"
+						},
+						'min': 0
+					},
+					'plotOptions': {
+						'spline': {
+							'marker': {
+								'enabled': true,
+								'radius': 2 
+							}
+						}
+					},
+					'series': [
+						{
+							'name': "includeSubDomains",
+							'data': []
+						}, {
+							'name': "preload",
+							'data': []
+						}
+					]
+				},
+				new DataResolver(true, true, ['includeSubDomains', 'preload', 'chromium'], ['includeSubDomains', 'preload'])
 			);
 
 			chartMap['inconsistencies'] = new Chart('inconsistencies',
@@ -606,7 +768,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.3f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -704,7 +866,7 @@
 					},
 					'tooltip': {
 						'headerFormat': "<b>{series.name}</b><br/>",
-						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.2f}% of domains with sts</span>"
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.3f}% of domains with sts</span>"
 					},
 					'xAxis': {
 						'title': {
@@ -741,12 +903,141 @@
 				new DataResolver(true, false, ['inconsistent'])
 			);
 
+			chartMap['parse-errors'] = new Chart('parse-errors',
+				{
+					'chart': {
+						'type': 'spline',
+						'zoomType': 'xy'
+					},
+					'title': {
+						'text': "Parse errors"
+					},
+					'tooltip': {
+						'headerFormat': "<b>{series.name}</b><br/>",
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:,.0f} domains</span>"
+					},
+					'xAxis': {
+						'title': {
+							'text': "Date"
+						},
+						'type': 'datetime',
+						'dateTimeLabelFormats': {
+							'day': '%e. %b %Y',
+							'month': '%b %Y',
+							'year': '%Y'
+						}
+					},
+					'yAxis': {
+						'title': {
+							'text': "# domains"
+						},
+						'min': 0
+					},
+					'plotOptions': {
+						'spline': {
+							'marker': {
+								'enabled': true,
+								'radius': 2 
+							}
+						}
+					},
+					'series': [
+						{
+							'name': "Domains with parse errors",
+							'data': []
+						}
+					]
+				},
+				{
+					'chart': {
+						'type': 'spline',
+						'zoomType': 'xy'
+					},
+					'title': {
+						'text': "Parse errors"
+					},
+					'tooltip': {
+						'headerFormat': "<b>{series.name}</b><br/>",
+						'pointFormat': "<span>{point.x:%e. %b %Y}</span><br/><span>{point.y:.3f}% of scanned domains</span>"
+					},
+					'xAxis': {
+						'title': {
+							'text': "Date"
+						},
+						'type': 'datetime',
+						'dateTimeLabelFormats': {
+							'day': '%e. %b %Y',
+							'month': '%b %Y',
+							'year': '%Y'
+						}
+					},
+					'yAxis': {
+						'title': {
+							'text': "% of scanned domains"
+						},
+						'min': 0
+					},
+					'plotOptions': {
+						'spline': {
+							'marker': {
+								'enabled': true,
+								'radius': 2 
+							}
+						}
+					},
+					'series': [
+						{
+							'name': "Domains with parse errors",
+							'data': []
+						}
+					]
+				},
+				new DataResolver(true, true, ['parseError'])
+			);
+
+			tableMap['parse-errors-most-common'] = new Table('parse-errors-most-common', 3, 'data/parse-errors/most-common.json', function(index, data) {
+				var row = "<tr>";
+				row += "<th scope=\"row\">" + (index + 1) + "</th>";
+				row += "<td>" + data['occurences'] + "</td>";
+				row += "<td>" + data['error'] + "</td>";
+				row += "</tr>\n";
+				return row;
+			});
+
+			$('.data-set-toggle').delegate('input[type="radio"]', 'change', function(event) {
+				var group = $(event.delegateTarget);
+				var option = $(event.currentTarget);
+
+				var set = option.data('set');
+				var id = group.data('chart');
+
+				var chart = chartMap[id];
+				if (chart) {
+					chart.load(set);
+				}
+			});
+			$('.data-set-table-toggle').delegate('input[type="radio"]', 'change', function(event) {
+				var group = $(event.delegateTarget);
+				var option = $(event.currentTarget);
+
+				var set = option.data('set');
+				var id = group.data('table');
+
+				var table = tableMap[id];
+				if (table) {
+					table.show(set);
+				}
+			});
+
 			$.each(chartMap, function(id, chart) {
 				if(id == 'inconsistencies') {
 					chart.load('ipv4');
 				} else {
 					chart.load('merged');
 				}
+			});
+			$.each(tableMap, function(id, table) {
+				table.show('ipv4');
 			});
 		});
 	</script>
