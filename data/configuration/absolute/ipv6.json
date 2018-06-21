@@ -1,5 +1,15 @@
 {
 	"chromium": [],
-	"includeSubDomains": [],
-	"preload": []
+	"includeSubDomains": [
+		[
+			1526649180000,
+			150190
+		]
+	],
+	"preload": [
+		[
+			1526649180000,
+			88177
+		]
+	]
 }

@@ -1,4 +1,86 @@
 {
-	"ipv4": [],
-	"ipv6": []
+	"ipv4": [
+		{
+			"error": "Unknown sts element: '6521535' in header 'Strict-Transport-Security: 6521535; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '7696783' in header 'Strict-Transport-Security: 7696783; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '7234604' in header 'Strict-Transport-Security: 7234604; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '7015356' in header 'Strict-Transport-Security: 7015356; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '5030859' in header 'Strict-Transport-Security: 5030859; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '2800495' in header 'Strict-Transport-Security: 2800495; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '4433609' in header 'Strict-Transport-Security: 4433609; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '4918236' in header 'Strict-Transport-Security: 4918236; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '5636290' in header 'Strict-Transport-Security: 5636290; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'redirecthttptohttps' in header 'Strict-Transport-Security: max-age=15552001; includeSubDomains; preload; redirectHttpToHttps;'",
+			"occurences": 1
+		}
+	],
+	"ipv6": [
+		{
+			"error": "Unknown sts element: '\"max-age=31536000\"' in header 'Strict-Transport-Security: \"max-age=31536000\"'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'max-age=631138519,max-age=31536000' in header 'Strict-Transport-Security: max-age=631138519,max-age=31536000; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '#includesubdomains:' in header 'Strict-Transport-Security: max-age=31536000; #includeSubDomains:'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'max-age=15$' in header 'Strict-Transport-Security: max-age=15$'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'includesubcomugamers' in header 'Strict-Transport-Security: max-age=31536000; includeSubcomugamers;'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: ': max-age=15768000' in header 'Strict-Transport-Security: : max-age=15768000'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: '# includesubdomains' in header 'Strict-Transport-Security: max-age=15768000;    # includeSubDomains; preload;'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'max-age=-209711426' in header 'Strict-Transport-Security: max-age=-209711426; includeSubDomains'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'max-age=15768000,max-age=15768000' in header 'Strict-Transport-Security: max-age=15768000,max-age=15768000'",
+			"occurences": 1
+		},
+		{
+			"error": "Unknown sts element: 'prel$' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomains; prel$'",
+			"occurences": 1
+		}
+	]
 }
