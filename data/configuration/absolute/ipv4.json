@@ -9,16 +9,6 @@
 			52833
 		]
 	],
-	"includeSubDomains": [
-		[
-			1526649180000,
-			3066657
-		]
-	],
-	"preload": [
-		[
-			1526649180000,
-			1432615
-		]
-	]
+	"includeSubDomains": [],
+	"preload": []
 }
