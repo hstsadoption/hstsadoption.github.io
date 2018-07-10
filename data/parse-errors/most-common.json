@@ -1,43 +1,43 @@
 {
 	"ipv4": [
 		{
-			"error": "Unknown sts element: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3'",
+			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3'",
 			"occurences": 32745
 		},
 		{
-			"error": "Unknown sts element: '???max-age=31536000???' in header 'Strict-Transport-Security: ???max-age=31536000???'",
+			"error": "Unknown directive: '???max-age=31536000???' in header 'Strict-Transport-Security: ???max-age=31536000???'",
 			"occurences": 2327
 		},
 		{
-			"error": "Unknown sts element: 'max-age=' in header 'Strict-Transport-Security: max-age='",
+			"error": "Unknown directive: 'max-age=' in header 'Strict-Transport-Security: max-age='",
 			"occurences": 1483
 		},
 		{
-			"error": "Unknown sts element: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d'",
+			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d'",
 			"occurences": 1126
 		},
 		{
-			"error": "Unknown sts element: '\\' in header 'Strict-Transport-Security: max-age=0;\\'",
+			"error": "Unknown directive: '\\' in header 'Strict-Transport-Security: max-age=0;\\'",
 			"occurences": 703
 		},
 		{
-			"error": "Unknown sts element: 'includesubdomain' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomain'",
+			"error": "Unknown directive: 'includesubdomain' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomain'",
 			"occurences": 684
 		},
 		{
-			"error": "Unknown sts element: 'includesubdomains preload' in header 'Strict-Transport-Security: max-age=63072000; includeSubDomains preload'",
+			"error": "Unknown directive: 'includesubdomains preload' in header 'Strict-Transport-Security: max-age=63072000; includeSubDomains preload'",
 			"occurences": 536
 		},
 		{
-			"error": "Unknown sts element: 'includesubdomainsi' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomainsi; preload'",
+			"error": "Unknown directive: 'includesubdomainsi' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomainsi; preload'",
 			"occurences": 439
 		},
 		{
-			"error": "Unknown sts element: 'always' in header 'Strict-Transport-Security: max-age=31536000; always'",
+			"error": "Unknown directive: 'always' in header 'Strict-Transport-Security: max-age=31536000; always'",
 			"occurences": 339
 		},
 		{
-			"error": "Unknown sts element: 'max-age:86400' in header 'Strict-Transport-Security: max-age:86400;'",
+			"error": "Unknown directive: 'max-age:86400' in header 'Strict-Transport-Security: max-age:86400;'",
 			"occurences": 332
 		}
 	],
