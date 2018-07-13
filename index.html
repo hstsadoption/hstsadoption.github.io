@@ -54,6 +54,7 @@
 				<p>
 					This chart shows how many domains include a valid HSTS header in their HTTPS response, as well as domains that include their subdomains in the strict transport security policy and domains that have preloading enabled. For further details about these configuration options, see section 3.
 				</p>
+				<div id="chart-adoption"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="adoption-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="adoption-scope-absolute-tab" data-toggle="tab" href="#adoption-absolute" role="tab" aria-controls="adoption-absolute" aria-selected="true">
@@ -89,6 +90,7 @@
 					The <code>max-age</code> directive is required for the header to be valid and can have any positive integer value. This value specifies the duration in seconds for which the strict transport security policy should be active. The spread of the value used for this directive can be seen in the following chart.
 				</p>
 
+				<div id="chart-max-age"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="max-age-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="max-age-scope-absolute-tab" data-toggle="tab" href="#max-age-absolute" role="tab" aria-controls="max-age-absolute" aria-selected="true">
@@ -171,6 +173,7 @@
 					The other two directives do not have any values, but can either be set or not. The <code>includeSubDomains</code> directive extends the strict transport security policy to any subdomains of the domain that the HSTS header was sent initially. By setting <code>preload</code> directive the owner of a website allows its domain to be included in preload lists that come with most browsers.
 				</p>
 
+				<div id="chart-configuration"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="configuration-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="configuration-scope-absolute-tab" data-toggle="tab" href="#configuration-absolute" role="tab" aria-controls="configuration-absolute" aria-selected="true">
@@ -213,6 +216,7 @@
 					The total inconsistencies statistic shows the domains with any of the above inconsistencies.
 				</p>
 
+				<div id="chart-inconsistencies"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="inconsistencies-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="inconsistencies-scope-absolute-tab" data-toggle="tab" href="#inconsistencies-absolute" role="tab" aria-controls="inconsistencies-absolute" aria-selected="true">
@@ -240,6 +244,7 @@
 					Inconsistencies between different IP versions are found by defining a set of quad tuples for each IP version. Every quad tuple contains whether a valid HSTS header was set, the value of the <code>max-age</code> directive and whether the <code>includeSubDomains</code> and <code>preload</code> directives were set. If such a quad tuple is found in the set for one IP version, but not for the other, the domain being served on those IP addresses is considered inconsistent between IP versions.
 				</p>
 
+				<div id="chart-inconsistency-ipv4-ipv6"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="inconsistency-v4v6-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="inconsistency-v4v6-scope-absolute-tab" data-toggle="tab" href="#inconsistency-v4v6-absolute" role="tab" aria-controls="inconsistency-v4v6-absolute" aria-selected="true">
@@ -259,6 +264,7 @@
 				<p>
 					While parsing the HSTS header parse errors can occur in case the header does not apply to <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a>. However a header that causes a parse error might still be valid if it is syntactically correct and all of the required directives are given.
 				</p>
+				<div id="chart-parse-errors"></div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Chart options">
 					<div class="nav btn-group btn-group-toggle" id="parse-errors-tabs" data-toggle="buttons" role="tablist">
 						<label class="nav-link btn btn-secondary active" id="parse-errors-scope-absolute-tab" data-toggle="tab" href="#parse-errors-absolute" role="tab" aria-controls="parse-errors-absolute" aria-selected="true">
