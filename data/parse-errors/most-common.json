@@ -2,85 +2,85 @@
 	"ipv4": [
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3'",
-			"occurences": 15803
+			"occurences": 14373
 		},
 		{
 			"error": "Unknown directive: '31536000' in header 'Strict-Transport-Security: 31536000'",
-			"occurences": 1406
+			"occurences": 1419
 		},
 		{
 			"error": "Unknown directive: 'max-age=' in header 'Strict-Transport-Security: max-age='",
-			"occurences": 1220
+			"occurences": 889
 		},
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d'",
-			"occurences": 891
+			"occurences": 848
 		},
 		{
 			"error": "Unknown directive: 'max-age:31536000' in header 'Strict-Transport-Security: max-age:31536000; includeSubDomains'",
-			"occurences": 751
-		},
-		{
-			"error": "Unknown directive: 'max-age=off' in header 'Strict-Transport-Security: max-age=off; preload'",
-			"occurences": 741
+			"occurences": 797
 		},
 		{
 			"error": "Unknown directive: 'includesubdomain' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomain'",
-			"occurences": 584
+			"occurences": 749
+		},
+		{
+			"error": "Unknown directive: 'max-age=off' in header 'Strict-Transport-Security: max-age=off; preload'",
+			"occurences": 732
 		},
 		{
 			"error": "Unknown directive: 'includesubdomainsi' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomainsi; preload'",
-			"occurences": 558
+			"occurences": 592
 		},
 		{
 			"error": "Unknown directive: '\\' in header 'Strict-Transport-Security: max-age=0;\\'",
-			"occurences": 546
+			"occurences": 562
 		},
 		{
 			"error": "Unknown directive: 'redirecthttptohttps' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomains; redirectHttpToHttps'",
-			"occurences": 467
+			"occurences": 465
 		}
 	],
 	"ipv6": [
 		{
 			"error": "Unknown directive: 'max-age=' in header 'Strict-Transport-Security: max-age='",
-			"occurences": 936
+			"occurences": 4855
 		},
 		{
 			"error": "Unknown directive: 'max-age:31536000' in header 'Strict-Transport-Security: max-age:31536000; includeSubDomains'",
-			"occurences": 661
+			"occurences": 718
 		},
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u00b3'",
-			"occurences": 507
+			"occurences": 455
+		},
+		{
+			"error": "Unknown directive: 'strict-transport-security: max-age=31536000' in header 'Strict-Transport-Security: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload'",
+			"occurences": 229
 		},
 		{
 			"error": "Unknown directive: 'includesub' in header 'Strict-Transport-Security: max-age=31536000; includeSub'",
-			"occurences": 176
+			"occurences": 205
 		},
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009d' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=63072000;\u00e2\u0080\u009d'",
-			"occurences": 166
+			"occurences": 161
 		},
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=63072000' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=63072000;\u00e2\u0080\u009d'",
-			"occurences": 166
+			"occurences": 161
 		},
 		{
 			"error": "Unknown directive: '\u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d' in header 'Strict-Transport-Security: \u00e2\u0080\u009cmax-age=31536000\u00e2\u0080\u009d'",
-			"occurences": 154
+			"occurences": 155
+		},
+		{
+			"error": "Unknown directive: 'max-age=-1' in header 'Strict-Transport-Security: max-age=-1;'",
+			"occurences": 106
 		},
 		{
 			"error": "Unknown directive: 'always' in header 'Strict-Transport-Security: max-age=300; includeSubDomains; preload; always;'",
-			"occurences": 89
-		},
-		{
-			"error": "Unknown directive: '2592000' in header 'Strict-Transport-Security: 2592000; includeSubDomains; preload'",
-			"occurences": 70
-		},
-		{
-			"error": "Unknown directive: 'includesubdomain' in header 'Strict-Transport-Security: max-age=31536000; includeSubDomain'",
-			"occurences": 70
+			"occurences": 83
 		}
 	]
 }
